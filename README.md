@@ -2,7 +2,7 @@
 
 ## Overview
 
-StockGPT provides intelligent stock analysis by leveraging advanced language models and data analysis libraries. This project utilizes langchain with OpenAI, along with various Python libraries for data processing and visualization.
+StockGPT can be used for intelligent stock analysis by leveraging advanced LLMs with tool calling. This project utilizes langchain with OpenAI, along with various Python libraries for tool calling and stock chart visualisation.
 
 ## Installation
 
