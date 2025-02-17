@@ -9,6 +9,15 @@ from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
+def validate_environment():
+    required_vars = ["LLM_MODEL_NAME", "LLM_API_KEY", "LLM_BASE_URL"]
+    missing = [var for var in required_vars if not os.getenv(var)]
+    
+    if missing:
+        raise EnvironmentError(
+            f"Missing required environment variables: {', '.join(missing)}\n"
+            "Please check your .env file."
+        )
 
 @tool
 def get_stock_info(symbol: str, key: str):
@@ -151,6 +160,8 @@ def call_functions(llm_with_tools, user_prompt):
       responses.append(plot_response)
 
     return "\n".join(responses)
+
+validate_environment()
 
 llm = ChatOpenAI(
     model=os.getenv("LLM_MODEL_NAME"),
